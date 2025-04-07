@@ -1,8 +1,8 @@
 
--- ---------------------------------------------
+-- ---------------------------------------------------------
 -- PostgreSQL Assignment 
 -- Purpose: Table Creation, Data Insertion, and Queries
--- ---------------------------------------------
+-- --------------------------------------------------------------
 
 -- Create Books Table
 CREATE TABLE books (
@@ -21,9 +21,9 @@ VALUES
 ('The Alchemist', 'Paulo Coelho', 12.99, 10, 1988),
 ('To Kill a Mockingbird', 'Harper Lee', 15.50, 8, 1960),
 ('1984', 'George Orwell', 14.25, 12, 1949),
-('Pride and Prejudice', 'Jane Austen', 10.00, 5, 1813),
+('Pride and Prejudice', 'Jane Austen', 10.00, 0, 1813),
 ('The Great Gatsby', 'F. Scott Fitzgerald', 13.75, 7, 1925),
-('The Catcher in the Rye', 'J.D. Salinger', 11.80, 6, 1951),
+('The Catcher in the Rye', 'J.D. Salinger', 11.80, 0, 1951),
 ('Brave New World', 'Aldous Huxley', 16.00, 9, 1932),
 ('The Hobbit', 'J.R.R. Tolkien', 18.99, 11, 1937),
 ('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 20.00, 15, 1997),
@@ -51,6 +51,8 @@ VALUES
 ('Daniel Taylor', 'daniel.taylor@example.com'),
 ('Olivia Anderson', 'olivia.anderson@example.com'),
 ('James Thomas', 'james.thomas@example.com'),
+('Rafizul Isalm', 'rafizulislam899@gmail.com'),
+('Rafiz', 'rafiz@example.com'),
 ('Mia Jackson', 'mia.jackson@example.com');
 
 
@@ -70,6 +72,7 @@ VALUES
 (1, 3, 2),
 (2, 5, 1),
 (3, 2, 4),
+(4, 7, 1),
 (4, 7, 1),
 (5, 1, 3),
 (6, 6, 2),
