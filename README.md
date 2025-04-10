@@ -60,8 +60,10 @@ UPDATE books SET price = 50 WHERE id = 1;
 **উত্তর:**  
 - `COUNT()` — মোট রেকর্ড সংখ্যা গণনা করে।  
 - `SUM()` — নির্দিষ্ট কলামের মানগুলোর যোগফল বের করে।  
-- `AVG()` — নির্দিষ্ট কলামের গড় মান বের করে।  
+- `AVG()` — নির্দিষ্ট কলামের গড় মান বের করে।
+  
 উদাহরণ:
+
 ```sql
 SELECT COUNT(*) FROM orders;
 SELECT SUM(price) FROM books;
