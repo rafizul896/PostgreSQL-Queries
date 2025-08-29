@@ -71,3 +71,72 @@ SELECT AVG(price) FROM books;
 ```
 
 ---
+
+### 1️⃣1️⃣ **PostgreSQL-এ ORDER BY এর কাজ কী ?**
+
+**উত্তর:**
+`ORDER BY` ক্লজ ব্যবহার করে কুয়েরির ফলাফলকে একটি বা একাধিক কলামের মান অনুসারে সাজানো যায়। এটি ডিফল্টভাবে `ASC` (ascending) অর্ডারে থাকে, তবে চাইলে `DESC` (descending) ব্যবহার করা যায়।
+
+```sql
+SELECT * FROM books ORDER BY price DESC;
+```
+
+---
+
+### 1️⃣2️⃣ **DISTINCT কী এবং এর ব্যবহার কীভাবে করা হয় ?**
+
+**উত্তর:**
+`DISTINCT` ব্যবহার করা হয় একটি কলামের ডুপ্লিকেট মান সরিয়ে ইউনিক রেকর্ড আনার জন্য।
+
+```sql
+SELECT DISTINCT category FROM books;
+```
+
+---
+
+### 1️⃣3️⃣ **PostgreSQL-এ INDEX কী এবং কেন ব্যবহার করা হয় ?**
+
+**উত্তর:**
+**Index** হলো একটি ডেটা স্ট্রাকচার যা টেবিলের সার্চ বা কুয়েরি স্পিড বাড়ানোর জন্য ব্যবহৃত হয়। যখন টেবিলে অনেক রেকর্ড থাকে, তখন ইনডেক্স ছাড়া সার্চ অনেক স্লো হয়।
+
+```sql
+CREATE INDEX idx_books_title ON books(title);
+```
+
+---
+
+### 1️⃣4️⃣ **PostgreSQL-এ DELETE এবং TRUNCATE এর মধ্যে পার্থক্য কী ?**
+
+**উত্তর:**
+
+* `DELETE` — নির্দিষ্ট কন্ডিশনের উপর ভিত্তি করে রেকর্ড ডিলিট করে, এবং এটি রোলব্যাক করা যায়।
+* `TRUNCATE` — পুরো টেবিলের সব রেকর্ড একসাথে ডিলিট করে, কিন্তু এটি দ্রুততর এবং সাধারণত রোলব্যাক করা যায় না।
+
+```sql
+DELETE FROM books WHERE id = 5;
+TRUNCATE TABLE books;
+```
+
+---
+
+### 1️⃣5️⃣ **PostgreSQL-এ টেবিলের সাথে টেবিল সম্পর্ক (Relationships) কিভাবে তৈরি করা হয় ?**
+
+**উত্তর:**
+PostgreSQL-এ টেবিল রিলেশনশিপ তৈরি করা হয় **Primary Key** এবং **Foreign Key** এর মাধ্যমে। যেমনঃ
+
+```sql
+CREATE TABLE authors (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100)
+);
+
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(200),
+  author_id INT REFERENCES authors(id)
+);
+```
+
+এখানে `books` টেবিলের `author_id` হলো `authors` টেবিলের `id` এর সাথে সম্পর্কযুক্ত।
+
+---
